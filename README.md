@@ -1,73 +1,419 @@
-# Welcome to your Lovable project
+# 🎯 Phonics Matching Game
 
-## Project info
+A beautiful, responsive browser-based memory matching game designed to help children learn phonics. Built with React, TypeScript, and Tailwind CSS for optimal performance across mobile, tablet, and desktop devices.
 
-**URL**: https://lovable.dev/projects/edb3d0fd-41b1-4642-97f7-5502744810df
+## 🎮 Game Features
 
-## How can I edit this code?
+- **10 Interactive Cards**: 5 matching pairs with phonics content
+- **Responsive Design**: Optimized for all device sizes
+- **Kid-Friendly Animations**: Smooth card flips, bounce effects, and celebration animations
+- **Victory Screen**: Shows discount code and promotional message upon completion
+- **Progress Tracking**: Visual progress bar and move counter
+- **Accessibility**: Full keyboard navigation and screen reader support
 
-There are several ways of editing your application.
+## 🖼️ Customizing Card Images
 
-**Use Lovable**
+### Quick Image Replacement
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/edb3d0fd-41b1-4642-97f7-5502744810df) and start prompting.
+1. **Prepare Your Images**:
+   - Create square images (512x512px recommended)
+   - Use JPG or PNG format
+   - Name them descriptively (e.g., `card-apple-a.jpg`)
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Add Images to Project**:
+   ```bash
+   # Place your images in the src/assets/ folder
+   src/assets/
+   ├── card-apple-a.jpg      # Your custom image 1
+   ├── card-bear-b.jpg       # Your custom image 2
+   ├── card-cat-c.jpg        # Your custom image 3
+   ├── card-dog-d.jpg        # Your custom image 4
+   ├── card-elephant-e.jpg   # Your custom image 5
+   └── card-back.jpg         # Card back design
+   ```
 
-**Use your preferred IDE**
+3. **Update the Configuration**:
+   Edit `src/data/gameData.ts`:
+   ```typescript
+   // Update import statements
+   import cardAppleA from "@/assets/your-new-image-1.jpg";
+   import cardBearB from "@/assets/your-new-image-2.jpg";
+   // ... continue for all images
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+   // Update card data descriptions
+   export const CARD_DATA: Card[] = [
+     {
+       id: 1,
+       pairId: 1,
+       front: cardAppleA,
+       alt: "Your custom description for screen readers"
+     },
+     // ... continue for all cards
+   ];
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Adding More Card Pairs
 
-Follow these steps:
+To expand the game beyond 5 pairs:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Add New Images**: Place additional images in `src/assets/`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Update Constants**:
+   ```typescript
+   // In src/data/gameData.ts
+   export const TOTAL_PAIRS = 7; // Increase number
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Add Card Data**:
+   ```typescript
+   // Add new pairs to CARD_DATA array
+   {
+     id: 11,
+     pairId: 6,
+     front: cardNewImage1,
+     alt: "Description of new card"
+   },
+   {
+     id: 12,
+     pairId: 6,
+     front: cardNewImage1,
+     alt: "Description of new card"
+   },
+   // Continue pattern for additional pairs...
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 💰 Updating Discount Code & Promotional Message
+
+Edit the victory configuration in `src/data/gameData.ts`:
+
+```typescript
+export const VICTORY_CONFIG = {
+  title: "🎉 Congratulations! 🎉",           // Victory title
+  message: "You've mastered our phonics matching game!", // Success message
+  discountCode: "PHONICS20",                 // Your discount code
+  discountText: "Use discount code PHONICS20 for 20% off our physical phonics card game!", // Offer description
+  callToAction: "Ready to continue learning with our complete phonics set?", // Call to action
+  website: "Visit our store to order your physical game today!" // Store link text
+};
 ```
 
-**Edit a file directly in GitHub**
+### Connecting to Your Store
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To link the "Shop Now" button to your actual store:
 
-**Use GitHub Codespaces**
+1. Open `src/components/VictoryScreen.tsx`
+2. Find the "Shop Now" button (around line 95)
+3. Replace the alert with your store URL:
+   ```typescript
+   onClick={() => {
+     window.open("https://your-store-url.com", "_blank");
+   }}
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Customizing Colors & Design
 
-## What technologies are used for this project?
+The game uses a design system defined in `src/index.css` and `src/tailwind.config.ts`. 
 
-This project is built with:
+### Changing Color Scheme
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Edit the CSS variables in `src/index.css`:
 
-## How can I deploy this project?
+```css
+:root {
+  /* Primary game color (buttons, highlights) */
+  --primary: 220 100% 60%;        /* Bright Blue */
+  
+  /* Secondary color (accents, success states) */
+  --secondary: 45 100% 55%;       /* Sunny Yellow */
+  
+  /* Success color (matches, completion) */
+  --success: 145 70% 50%;         /* Fresh Green */
+  
+  /* Accent color (special elements) */
+  --accent: 25 100% 60%;          /* Playful Orange */
+  
+  /* Background gradient */
+  --gradient-game-bg: linear-gradient(145deg, hsl(var(--background)), hsl(220 50% 99%));
+}
+```
 
-Simply open [Lovable](https://lovable.dev/projects/edb3d0fd-41b1-4642-97f7-5502744810df) and click on Share -> Publish.
+### Customizing Animations
 
-## Can I connect a custom domain to my Lovable project?
+Animation timing can be adjusted by modifying these CSS variables:
 
-Yes, you can!
+```css
+:root {
+  --flip-duration: 0.6s;    /* Card flip speed */
+  --match-duration: 0.8s;   /* Match celebration duration */
+  --bounce-duration: 0.4s;  /* Button bounce timing */
+}
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🧪 Testing the Game
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Manual Testing Checklist
+
+- [ ] Cards flip when clicked/tapped
+- [ ] Matching pairs stay face up
+- [ ] Non-matching pairs flip back after delay
+- [ ] Victory screen appears after all matches
+- [ ] Discount code displays correctly
+- [ ] "Play Again" button resets the game
+- [ ] Game works on mobile devices
+- [ ] Game works on tablets
+- [ ] Game works on desktop
+- [ ] Keyboard navigation works (Tab, Enter, Space)
+
+### Automated Testing Setup
+
+Basic test examples are included. To expand testing:
+
+```bash
+# Install testing dependencies
+npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
+
+# Run tests
+npm test
+```
+
+Example test structure in `src/components/__tests__/`:
+
+```typescript
+// GameCard.test.tsx
+import { render, fireEvent } from '@testing-library/react';
+import { GameCard } from '../GameCard';
+
+test('card flips when clicked', () => {
+  const mockCard = { id: 1, pairId: 1, front: 'test.jpg', alt: 'Test card' };
+  const mockOnClick = jest.fn();
+  
+  const { getByRole } = render(
+    <GameCard 
+      card={mockCard}
+      isFlipped={false}
+      isMatched={false}
+      isDisabled={false}
+      onClick={mockOnClick}
+    />
+  );
+  
+  fireEvent.click(getByRole('button'));
+  expect(mockOnClick).toHaveBeenCalledWith(mockCard);
+});
+```
+
+## 🚀 Deployment
+
+### Static Hosting Options
+
+The game is built as a static web application and can be hosted on:
+
+- **Netlify**: Drag and drop the `dist` folder
+- **Vercel**: Connect your GitHub repository
+- **GitHub Pages**: Use the `gh-pages` branch
+- **AWS S3**: Upload to S3 bucket with static hosting
+- **Any web server**: Upload the built files
+
+### Build Process
+
+```bash
+# Install dependencies
+npm install
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
+
+The built files will be in the `dist/` folder.
+
+### Custom Domain Setup
+
+After deploying, you can connect a custom domain:
+
+1. **Purchase Domain**: Buy from registrar (GoDaddy, Namecheap, etc.)
+2. **DNS Configuration**: Point your domain to hosting provider
+3. **SSL Certificate**: Enable HTTPS (usually automatic with modern hosts)
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/                 # Game images
+│   ├── card-apple-a.jpg   # Card front images
+│   ├── card-bear-b.jpg
+│   ├── ...
+│   └── card-back.jpg      # Card back design
+├── components/            # React components
+│   ├── GameCard.tsx       # Individual card component
+│   ├── VictoryScreen.tsx  # Win screen with discount
+│   └── PhonicGame.tsx     # Main game logic
+├── data/                  # Game configuration
+│   └── gameData.ts        # Cards, images, messages
+├── pages/                 # App pages
+│   └── Index.tsx          # Main page
+└── lib/                   # Utilities
+    └── utils.ts           # Helper functions
+```
+
+## 🔧 Version Control with Git
+
+### Initial Setup
+
+```bash
+# Initialize repository (if not done)
+git init
+
+# Add all files
+git add .
+
+# Create initial commit
+git commit -m "Initial phonics matching game"
+
+# Add remote repository
+git remote add origin https://github.com/yourusername/phonics-game.git
+
+# Push to GitHub
+git push -u origin main
+```
+
+### Making Changes
+
+```bash
+# Create feature branch
+git checkout -b update-card-images
+
+# Make your changes...
+# Update images, modify gameData.ts, etc.
+
+# Stage and commit changes
+git add .
+git commit -m "Update card images with new phonics content"
+
+# Push branch
+git push origin update-card-images
+
+# Merge back to main (via pull request or directly)
+git checkout main
+git merge update-card-images
+git push origin main
+```
+
+### Tracking Changes
+
+```bash
+# View recent changes
+git log --oneline
+
+# See what files changed
+git status
+
+# View specific changes
+git diff filename.tsx
+
+# Revert specific file
+git checkout -- filename.tsx
+```
+
+## 🌟 Future Improvements
+
+### Suggested Enhancements
+
+1. **Sound Effects**:
+   - Card flip sounds
+   - Match celebration sounds
+   - Background music toggle
+
+2. **Difficulty Levels**:
+   - Easy: 3 pairs
+   - Medium: 5 pairs (current)
+   - Hard: 8 pairs
+
+3. **Progress Tracking**:
+   - Best time records
+   - Completion statistics
+   - Achievement badges
+
+4. **Multiplayer Mode**:
+   - Turn-based gameplay
+   - Score competition
+   - Online multiplayer
+
+5. **Accessibility Improvements**:
+   - High contrast mode
+   - Larger text options
+   - Voice instructions
+
+6. **Analytics**:
+   - Track game completion rates
+   - Monitor popular features
+   - A/B test different designs
+
+### Implementation Ideas
+
+```typescript
+// Example: Adding sound effects
+const playSound = (soundType: 'flip' | 'match' | 'victory') => {
+  const audio = new Audio(`/sounds/${soundType}.mp3`);
+  audio.play().catch(console.warn);
+};
+
+// Example: Difficulty settings
+export const DIFFICULTY_LEVELS = {
+  easy: { pairs: 3, timeLimit: null },
+  medium: { pairs: 5, timeLimit: 120 },
+  hard: { pairs: 8, timeLimit: 180 }
+};
+```
+
+## ❓ Troubleshooting
+
+### Common Issues
+
+**Cards not displaying images**:
+- Check image file paths in `gameData.ts`
+- Ensure images are in `src/assets/` folder
+- Verify image format (JPG/PNG)
+
+**Game not responsive on mobile**:
+- Check viewport meta tag in `index.html`
+- Verify Tailwind responsive classes
+- Test on actual devices, not just browser dev tools
+
+**Victory screen not showing**:
+- Check `TOTAL_PAIRS` constant matches actual pair count
+- Verify all cards have correct `pairId` values
+- Check browser console for JavaScript errors
+
+**Build errors**:
+- Run `npm install` to ensure dependencies
+- Check for TypeScript errors: `npm run type-check`
+- Verify all imports are correct
+
+### Getting Help
+
+1. **Check Browser Console**: Look for error messages
+2. **Review Documentation**: Reread relevant sections
+3. **Test Incrementally**: Make small changes and test
+4. **Community Support**: React and TypeScript communities
+
+## 📞 Support & Contact
+
+This game was built with modern web technologies:
+- **React 18**: Component framework
+- **TypeScript**: Type safety
+- **Tailwind CSS**: Styling system
+- **Vite**: Build tool
+
+For technical questions or customization help, consider:
+- React documentation: https://react.dev
+- Tailwind CSS docs: https://tailwindcss.com
+- TypeScript handbook: https://typescriptlang.org
+
+---
+
+**Happy Gaming! 🎮✨**
+
+*Built with ❤️ for kids learning phonics*
