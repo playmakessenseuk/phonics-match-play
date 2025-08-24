@@ -26,6 +26,7 @@ import cardBearB from "@/assets/card-bear-b.jpg";
 import cardCatC from "@/assets/card-cat-c.jpg";
 import cardDogD from "@/assets/card-dog-d.jpg";
 import cardElephantE from "@/assets/card-elephant-e.jpg";
+import cardFishF from "@/assets/card-fish-f.jpg";
 import cardBack from "@/assets/card-back.jpg";
 
 // Card interface definition
@@ -37,7 +38,7 @@ export interface Card {
 }
 
 // Game configuration constants
-export const TOTAL_PAIRS = 5;
+export const TOTAL_PAIRS = 6;
 export const TOTAL_CARDS = TOTAL_PAIRS * 2;
 
 // Card back image - REPLACE WITH YOUR OWN CARD BACK DESIGN
@@ -48,7 +49,7 @@ export const CARD_BACK_IMAGE = cardBack;
  * 
  * Each card object represents one game card:
  * - id: Unique identifier for the card
- * - pairId: Groups cards into matching pairs (1-5)
+ * - pairId: Groups cards into matching pairs (1-6)
  * - front: The image shown when card is flipped
  * - alt: Accessible description of the card image
  * 
@@ -124,6 +125,20 @@ export const CARD_DATA: Card[] = [
     pairId: 5,
     front: cardElephantE,
     alt: "Purple elephant with letter E - phonics learning card"
+  },
+  
+  // Pair 6: Fish F
+  {
+    id: 11,
+    pairId: 6,
+    front: cardFishF,
+    alt: "Orange and blue fish with letter F - phonics learning card"
+  },
+  {
+    id: 12,
+    pairId: 6,
+    front: cardFishF,
+    alt: "Orange and blue fish with letter F - phonics learning card"
   }
 ];
 

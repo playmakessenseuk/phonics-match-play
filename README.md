@@ -4,7 +4,7 @@ A beautiful, responsive browser-based memory matching game designed to help chil
 
 ## 🎮 Game Features
 
-- **10 Interactive Cards**: 5 matching pairs with phonics content
+- **12 Interactive Cards**: 6 matching pairs with phonics content
 - **Responsive Design**: Optimized for all device sizes
 - **Kid-Friendly Animations**: Smooth card flips, bounce effects, and celebration animations
 - **Victory Screen**: Shows discount code and promotional message upon completion
@@ -29,6 +29,7 @@ A beautiful, responsive browser-based memory matching game designed to help chil
    ├── card-cat-c.jpg        # Your custom image 3
    ├── card-dog-d.jpg        # Your custom image 4
    ├── card-elephant-e.jpg   # Your custom image 5
+   ├── card-fish-f.jpg       # Your custom image 6
    └── card-back.jpg         # Card back design
    ```
 
@@ -54,28 +55,28 @@ A beautiful, responsive browser-based memory matching game designed to help chil
 
 ### Adding More Card Pairs
 
-To expand the game beyond 5 pairs:
+To expand the game beyond 6 pairs:
 
 1. **Add New Images**: Place additional images in `src/assets/`
 
 2. **Update Constants**:
    ```typescript
    // In src/data/gameData.ts
-   export const TOTAL_PAIRS = 7; // Increase number
+   export const TOTAL_PAIRS = 8; // Increase number
    ```
 
 3. **Add Card Data**:
    ```typescript
    // Add new pairs to CARD_DATA array
    {
-     id: 11,
-     pairId: 6,
+     id: 13,
+     pairId: 7,
      front: cardNewImage1,
      alt: "Description of new card"
    },
    {
-     id: 12,
-     pairId: 6,
+     id: 14,
+     pairId: 7,
      front: cardNewImage1,
      alt: "Description of new card"
    },
@@ -327,8 +328,8 @@ git checkout -- filename.tsx
    - Background music toggle
 
 2. **Difficulty Levels**:
-   - Easy: 3 pairs
-   - Medium: 5 pairs (current)
+   - Easy: 4 pairs
+   - Medium: 6 pairs (current)
    - Hard: 8 pairs
 
 3. **Progress Tracking**:
@@ -362,8 +363,8 @@ const playSound = (soundType: 'flip' | 'match' | 'victory') => {
 
 // Example: Difficulty settings
 export const DIFFICULTY_LEVELS = {
-  easy: { pairs: 3, timeLimit: null },
-  medium: { pairs: 5, timeLimit: 120 },
+  easy: { pairs: 4, timeLimit: null },
+  medium: { pairs: 6, timeLimit: 120 },
   hard: { pairs: 8, timeLimit: 180 }
 };
 ```

@@ -123,7 +123,7 @@ export const VictoryScreen = ({ onPlayAgain }: VictoryScreenProps) => {
 
           {/* Game Stats */}
           <div className="text-xs text-muted-foreground pt-4 border-t border-border">
-            Game completed! You found all 5 matching pairs.
+            Game completed! You found all 6 matching pairs.
           </div>
         </CardContent>
       </Card>

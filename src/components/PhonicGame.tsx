@@ -185,10 +185,10 @@ export const PhonicGame = () => {
       <div className="max-w-4xl mx-auto">
         <div className={cn(
           "grid gap-4 justify-center",
-          // Responsive grid: 2 columns on mobile, 4 on tablet, 5 on desktop
-          "grid-cols-2 sm:grid-cols-4 lg:grid-cols-5",
+          // 3 rows of 4 cards: 2 columns on mobile, 4 columns on tablet and desktop
+          "grid-cols-2 sm:grid-cols-4",
           // Maximum card sizes for different screens
-          "max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto"
+          "max-w-sm sm:max-w-3xl mx-auto"
         )}>
           {cards.map((card) => (
             <GameCard
