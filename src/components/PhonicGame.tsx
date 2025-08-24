@@ -41,10 +41,8 @@ const createInitialState = (): GameState => ({
   gameComplete: false,
   moves: 0
 });
-
 export const PhonicGame = () => {
   const [gameState, setGameState] = useState<GameState>(createInitialState);
-  
   const {
     cards,
     flippedCards,
@@ -60,11 +58,9 @@ export const PhonicGame = () => {
   const handleCardClick = useCallback((clickedCard: Card) => {
     // Prevent actions during processing or if game is complete
     if (isProcessing || gameComplete) return;
-    
-    // Prevent clicking already flipped or matched cards
-    if (flippedCards.some(card => card.id === clickedCard.id) ||
-        matchedPairs.includes(clickedCard.pairId)) return;
 
+    // Prevent clicking already flipped or matched cards
+    if (flippedCards.some(card => card.id === clickedCard.id) || matchedPairs.includes(clickedCard.pairId)) return;
     setGameState(prevState => {
       const newFlippedCards = [...prevState.flippedCards, clickedCard];
       const newMoves = prevState.moves + 1;
@@ -72,12 +68,10 @@ export const PhonicGame = () => {
       // If this is the second card flipped, check for match
       if (newFlippedCards.length === 2) {
         const [firstCard, secondCard] = newFlippedCards;
-        
         if (isMatchingPair(firstCard, secondCard)) {
           // Match found! Add to matched pairs
           const newMatchedPairs = [...prevState.matchedPairs, clickedCard.pairId];
           const gameComplete = newMatchedPairs.length === TOTAL_PAIRS;
-          
           return {
             ...prevState,
             flippedCards: [],
@@ -133,8 +127,7 @@ export const PhonicGame = () => {
    * Check if a card should be displayed as flipped
    */
   const isCardFlipped = (card: Card): boolean => {
-    return flippedCards.some(flipped => flipped.id === card.id) ||
-           matchedPairs.includes(card.pairId);
+    return flippedCards.some(flipped => flipped.id === card.id) || matchedPairs.includes(card.pairId);
   };
 
   /**
@@ -143,15 +136,11 @@ export const PhonicGame = () => {
   const isCardMatched = (card: Card): boolean => {
     return matchedPairs.includes(card.pairId);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-game p-4">
+  return <div className="min-h-screen bg-gradient-game p-4">
       {/* Game Header */}
       <div className="max-w-4xl mx-auto mb-8">
         <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">
-            🎯 Phonics Matching Game
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">Phonics Matching Game</h1>
           <p className="text-lg text-muted-foreground">
             Find all the matching pairs to unlock your special discount!
           </p>
@@ -169,12 +158,7 @@ export const PhonicGame = () => {
             </div>
           </div>
 
-          <Button
-            onClick={resetGame}
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2"
-          >
+          <Button onClick={resetGame} variant="outline" size="sm" className="flex items-center gap-2">
             <RotateCcw className="w-4 h-4" />
             New Game
           </Button>
@@ -183,23 +167,12 @@ export const PhonicGame = () => {
 
       {/* Game Grid */}
       <div className="max-w-4xl mx-auto">
-        <div className={cn(
-          "grid gap-4 justify-center",
-          // 3 rows of 4 cards: 2 columns on mobile, 4 columns on tablet and desktop
-          "grid-cols-2 sm:grid-cols-4",
-          // Maximum card sizes for different screens
-          "max-w-sm sm:max-w-3xl mx-auto"
-        )}>
-          {cards.map((card) => (
-            <GameCard
-              key={card.id}
-              card={card}
-              isFlipped={isCardFlipped(card)}
-              isMatched={isCardMatched(card)}
-              isDisabled={isProcessing}
-              onClick={handleCardClick}
-            />
-          ))}
+        <div className={cn("grid gap-4 justify-center",
+      // 3 rows of 4 cards: 2 columns on mobile, 4 columns on tablet and desktop
+      "grid-cols-2 sm:grid-cols-4",
+      // Maximum card sizes for different screens
+      "max-w-sm sm:max-w-3xl mx-auto")}>
+          {cards.map(card => <GameCard key={card.id} card={card} isFlipped={isCardFlipped(card)} isMatched={isCardMatched(card)} isDisabled={isProcessing} onClick={handleCardClick} />)}
         </div>
 
         {/* Progress Indicator */}
@@ -209,10 +182,9 @@ export const PhonicGame = () => {
             <span>{matchedPairs.length}/{TOTAL_PAIRS} pairs</span>
           </div>
           <div className="w-full bg-muted rounded-full h-2">
-            <div
-              className="bg-gradient-success h-2 rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${(matchedPairs.length / TOTAL_PAIRS) * 100}%` }}
-            />
+            <div className="bg-gradient-success h-2 rounded-full transition-all duration-500 ease-out" style={{
+            width: `${matchedPairs.length / TOTAL_PAIRS * 100}%`
+          }} />
           </div>
         </div>
 
@@ -226,9 +198,6 @@ export const PhonicGame = () => {
       </div>
 
       {/* Victory Screen */}
-      {gameComplete && (
-        <VictoryScreen onPlayAgain={resetGame} />
-      )}
-    </div>
-  );
+      {gameComplete && <VictoryScreen onPlayAgain={resetGame} />}
+    </div>;
 };
