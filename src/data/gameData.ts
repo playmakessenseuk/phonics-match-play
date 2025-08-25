@@ -38,7 +38,7 @@ export interface Card {
 }
 
 // Game configuration constants
-export const TOTAL_PAIRS = 6;
+export const TOTAL_PAIRS = 3;
 export const TOTAL_CARDS = TOTAL_PAIRS * 2;
 
 // Card back image - REPLACE WITH YOUR OWN CARD BACK DESIGN
@@ -97,48 +97,6 @@ export const CARD_DATA: Card[] = [
     pairId: 3,
     front: cardCatC,
     alt: "Yellow cat with letter C - phonics learning card"
-  },
-  
-  // Pair 4: Dog D
-  {
-    id: 7,
-    pairId: 4,
-    front: cardDogD,
-    alt: "Golden retriever dog with letter D - phonics learning card"
-  },
-  {
-    id: 8,
-    pairId: 4,
-    front: cardDogD,
-    alt: "Golden retriever dog with letter D - phonics learning card"
-  },
-  
-  // Pair 5: Elephant E
-  {
-    id: 9,
-    pairId: 5,
-    front: cardElephantE,
-    alt: "Purple elephant with letter E - phonics learning card"
-  },
-  {
-    id: 10,
-    pairId: 5,
-    front: cardElephantE,
-    alt: "Purple elephant with letter E - phonics learning card"
-  },
-  
-  // Pair 6: Fish F
-  {
-    id: 11,
-    pairId: 6,
-    front: cardFishF,
-    alt: "Orange and blue fish with letter F - phonics learning card"
-  },
-  {
-    id: 12,
-    pairId: 6,
-    front: cardFishF,
-    alt: "Orange and blue fish with letter F - phonics learning card"
   }
 ];
 

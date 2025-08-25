@@ -136,7 +136,7 @@ export const PhonicGame = () => {
   const isCardMatched = (card: Card): boolean => {
     return matchedPairs.includes(card.pairId);
   };
-  return <div className="min-h-screen bg-gradient-game p-4">
+  return <div className="min-h-screen bg-white p-4">
       {/* Game Header */}
       <div className="max-w-4xl mx-auto mb-8">
         <div className="text-center mb-6">
@@ -168,10 +168,10 @@ export const PhonicGame = () => {
       {/* Game Grid */}
       <div className="max-w-4xl mx-auto">
         <div className={cn("grid gap-4 justify-center",
-      // 3 rows of 4 cards: 2 columns on mobile, 4 columns on tablet and desktop
-      "grid-cols-2 sm:grid-cols-4",
+      // 3 rows of 2 cards on mobile, 2 rows of 3 cards on desktop
+      "grid-cols-2 sm:grid-cols-3",
       // Maximum card sizes for different screens
-      "max-w-sm sm:max-w-3xl mx-auto")}>
+      "max-w-sm sm:max-w-lg mx-auto")}>
           {cards.map(card => <GameCard key={card.id} card={card} isFlipped={isCardFlipped(card)} isMatched={isCardMatched(card)} isDisabled={isProcessing} onClick={handleCardClick} />)}
         </div>
 

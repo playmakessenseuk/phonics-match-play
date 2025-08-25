@@ -84,18 +84,12 @@ export const GameCard = ({
       {/* Card Back (shown when face down) */}
       <div
         className={cn(
-          "absolute inset-0 w-full h-full",
+          "absolute inset-0 w-full h-full rounded-lg",
+          "bg-[hsl(var(--card-back))]",
           "transition-opacity duration-300",
           !isFlipped && !isMatched ? "opacity-100" : "opacity-0"
         )}
       >
-        <img
-          src={CARD_BACK_IMAGE}
-          alt="Card back - click to reveal"
-          className="w-full h-full object-cover rounded-lg"
-          loading="lazy"
-        />
-        
         {/* Hover glow effect for unflipped cards */}
         {!isDisabled && !isFlipped && !isMatched && (
           <div className="absolute inset-0 bg-gradient-primary opacity-0 hover:opacity-10 rounded-lg transition-opacity duration-300" />
