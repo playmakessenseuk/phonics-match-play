@@ -140,7 +140,7 @@ export const PhonicGame = () => {
       {/* Game Header */}
       <div className="max-w-4xl mx-auto mb-8">
         <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">Phonics Matching Game</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">Phonics Memory Game</h1>
           <p className="text-lg text-muted-foreground">
             Find all the matching pairs to unlock your special discount!
           </p>
