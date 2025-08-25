@@ -110,7 +110,7 @@ export const VICTORY_CONFIG = {
   title: "🎉 Congratulations! 🎉",
   message: "You've mastered our phonics matching game!",
   discountCode: "PHONICS20",
-  discountText: "Use discount code PHONICS20 for 20% off our physical phonics card game!",
+  discountText: "Use this discount code to order the full physical game!",
   callToAction: "Ready to continue learning with our complete phonics set?",
   website: "Visit our store to order your physical game today!"
 };
