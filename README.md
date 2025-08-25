@@ -4,7 +4,7 @@ A beautiful, responsive browser-based memory matching game designed to help chil
 
 ## 🎮 Game Features
 
-- **12 Interactive Cards**: 6 matching pairs with phonics content
+- **6 Interactive Cards**: 3 matching pairs with phonics content arranged in 2 rows of 3 (desktop) or 3 rows of 2 (mobile)
 - **Responsive Design**: Optimized for all device sizes
 - **Kid-Friendly Animations**: Smooth card flips, bounce effects, and celebration animations
 - **Victory Screen**: Shows discount code and promotional message upon completion
@@ -23,14 +23,11 @@ A beautiful, responsive browser-based memory matching game designed to help chil
 2. **Add Images to Project**:
    ```bash
    # Place your images in the src/assets/ folder
-   src/assets/
-   ├── card-apple-a.jpg      # Your custom image 1
-   ├── card-bear-b.jpg       # Your custom image 2
-   ├── card-cat-c.jpg        # Your custom image 3
-   ├── card-dog-d.jpg        # Your custom image 4
-   ├── card-elephant-e.jpg   # Your custom image 5
-   ├── card-fish-f.jpg       # Your custom image 6
-   └── card-back.jpg         # Card back design
+    src/assets/
+    ├── card-apple-a.jpg      # Your custom image 1
+    ├── card-bear-b.jpg       # Your custom image 2
+    ├── card-cat-c.jpg        # Your custom image 3
+    └── card-back.jpg         # Card back design (or solid color)
    ```
 
 3. **Update the Configuration**:
@@ -55,31 +52,31 @@ A beautiful, responsive browser-based memory matching game designed to help chil
 
 ### Adding More Card Pairs
 
-To expand the game beyond 6 pairs:
+To expand the game beyond 3 pairs:
 
 1. **Add New Images**: Place additional images in `src/assets/`
 
 2. **Update Constants**:
    ```typescript
    // In src/data/gameData.ts
-   export const TOTAL_PAIRS = 8; // Increase number
+   export const TOTAL_PAIRS = 4; // Increase number
    ```
 
 3. **Add Card Data**:
    ```typescript
-   // Add new pairs to CARD_DATA array
-   {
-     id: 13,
-     pairId: 7,
-     front: cardNewImage1,
-     alt: "Description of new card"
-   },
-   {
-     id: 14,
-     pairId: 7,
-     front: cardNewImage1,
-     alt: "Description of new card"
-   },
+    // Add new pairs to CARD_DATA array
+    {
+      id: 7,
+      pairId: 4,
+      front: cardNewImage1,
+      alt: "Description of new card"
+    },
+    {
+      id: 8,
+      pairId: 4,
+      front: cardNewImage1,
+      alt: "Description of new card"
+    },
    // Continue pattern for additional pairs...
    ```
 
@@ -92,7 +89,7 @@ export const VICTORY_CONFIG = {
   title: "🎉 Congratulations! 🎉",           // Victory title
   message: "You've mastered our phonics matching game!", // Success message
   discountCode: "PHONICS20",                 // Your discount code
-  discountText: "Use discount code PHONICS20 for 20% off our physical phonics card game!", // Offer description
+  discountText: "Use this discount code to order the full physical game!", // Offer description
   callToAction: "Ready to continue learning with our complete phonics set?", // Call to action
   website: "Visit our store to order your physical game today!" // Store link text
 };
@@ -114,6 +111,15 @@ To link the "Shop Now" button to your actual store:
 ## 🎨 Customizing Colors & Design
 
 The game uses a design system defined in `src/index.css` and `src/tailwind.config.ts`. 
+
+### Customizing Card Back Design
+
+The card backs can be customized in two ways:
+
+1. **Image-based**: Replace `src/assets/card-back.jpg` with your own design
+2. **Solid Color**: Set a solid color in `src/components/GameCard.tsx` by updating the card back style
+
+Current card back uses solid color `#649494` for a clean, professional look.
 
 ### Changing Color Scheme
 
@@ -245,8 +251,8 @@ src/
 ├── assets/                 # Game images
 │   ├── card-apple-a.jpg   # Card front images
 │   ├── card-bear-b.jpg
-│   ├── ...
-│   └── card-back.jpg      # Card back design
+│   ├── card-cat-c.jpg
+│   └── card-back.jpg      # Card back design (or solid color #649494)
 ├── components/            # React components
 │   ├── GameCard.tsx       # Individual card component
 │   ├── VictoryScreen.tsx  # Win screen with discount
@@ -328,9 +334,9 @@ git checkout -- filename.tsx
    - Background music toggle
 
 2. **Difficulty Levels**:
-   - Easy: 4 pairs
-   - Medium: 6 pairs (current)
-   - Hard: 8 pairs
+   - Easy: 2 pairs
+   - Medium: 3 pairs (current)
+   - Hard: 4+ pairs
 
 3. **Progress Tracking**:
    - Best time records
@@ -363,9 +369,9 @@ const playSound = (soundType: 'flip' | 'match' | 'victory') => {
 
 // Example: Difficulty settings
 export const DIFFICULTY_LEVELS = {
-  easy: { pairs: 4, timeLimit: null },
-  medium: { pairs: 6, timeLimit: 120 },
-  hard: { pairs: 8, timeLimit: 180 }
+  easy: { pairs: 2, timeLimit: null },
+  medium: { pairs: 3, timeLimit: 120 },
+  hard: { pairs: 4, timeLimit: 180 }
 };
 ```
 
@@ -384,7 +390,7 @@ export const DIFFICULTY_LEVELS = {
 - Test on actual devices, not just browser dev tools
 
 **Victory screen not showing**:
-- Check `TOTAL_PAIRS` constant matches actual pair count
+- Check `TOTAL_PAIRS` constant matches actual pair count (should be 3)
 - Verify all cards have correct `pairId` values
 - Check browser console for JavaScript errors
 
