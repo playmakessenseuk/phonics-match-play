@@ -20,19 +20,22 @@
  *    - Update TOTAL_PAIRS constant if adding more pairs
  */
 
-// Import card images - REPLACE THESE WITH YOUR OWN IMAGES
+// Import letter card images
+import cardLetterA from "@/assets/card-letter-a.jpg";
+import cardLetterB from "@/assets/card-letter-b.jpg";
+import cardLetterC from "@/assets/card-letter-c.jpg";
+
+// Import picture card images - REPLACE THESE WITH YOUR OWN IMAGES
 import cardAppleA from "@/assets/card-apple-a.jpg";
-import cardBearB from "@/assets/card-bear-b.jpg";
+import cardBallB from "@/assets/card-ball-b.jpg";
 import cardCatC from "@/assets/card-cat-c.jpg";
-import cardDogD from "@/assets/card-dog-d.jpg";
-import cardElephantE from "@/assets/card-elephant-e.jpg";
-import cardFishF from "@/assets/card-fish-f.jpg";
 import cardBack from "@/assets/card-back.jpg";
 
 // Card interface definition
 export interface Card {
   id: number;
   pairId: number;
+  type: 'letter' | 'picture';
   front: string;
   alt: string;
 }
@@ -49,54 +52,68 @@ export const CARD_BACK_IMAGE = cardBack;
  * 
  * Each card object represents one game card:
  * - id: Unique identifier for the card
- * - pairId: Groups cards into matching pairs (1-6)
+ * - pairId: Groups cards into matching pairs (1-3)
+ * - type: Either 'letter' or 'picture' to distinguish card types
  * - front: The image shown when card is flipped
  * - alt: Accessible description of the card image
  * 
- * TO ADD MORE CARDS: Duplicate pairs and increment pairId
- * TO CHANGE IMAGES: Update the import statements above and the 'front' properties below
+ * MATCHING PAIRS:
+ * - Letter cards match with their corresponding picture cards
+ * - Each pair has the same pairId but different types
+ * 
+ * TO ADD MORE CARDS: 
+ * 1. Add new letter and picture images to src/assets/
+ * 2. Import them above
+ * 3. Add letter and picture card entries with same pairId
+ * 4. Update TOTAL_PAIRS constant
  */
 export const CARD_DATA: Card[] = [
-  // Pair 1: Apple A
+  // Pair 1: Letter A ↔ Apple
   {
     id: 1,
     pairId: 1,
-    front: cardAppleA,
-    alt: "Red apple with letter A - phonics learning card"
+    type: 'letter',
+    front: cardLetterA,
+    alt: "Letter A - matches with apple"
   },
   {
     id: 2,
     pairId: 1,
+    type: 'picture',
     front: cardAppleA,
-    alt: "Red apple with letter A - phonics learning card"
+    alt: "Apple picture - matches with letter A"
   },
   
-  // Pair 2: Bear B
+  // Pair 2: Letter B ↔ Ball
   {
     id: 3,
     pairId: 2,
-    front: cardBearB,
-    alt: "Brown teddy bear with letter B - phonics learning card"
+    type: 'letter',
+    front: cardLetterB,
+    alt: "Letter B - matches with ball"
   },
   {
     id: 4,
     pairId: 2,
-    front: cardBearB,
-    alt: "Brown teddy bear with letter B - phonics learning card"
+    type: 'picture',
+    front: cardBallB,
+    alt: "Ball picture - matches with letter B"
   },
   
-  // Pair 3: Cat C
+  // Pair 3: Letter C ↔ Cat
   {
     id: 5,
     pairId: 3,
-    front: cardCatC,
-    alt: "Yellow cat with letter C - phonics learning card"
+    type: 'letter',
+    front: cardLetterC,
+    alt: "Letter C - matches with cat"
   },
   {
     id: 6,
     pairId: 3,
+    type: 'picture',
     front: cardCatC,
-    alt: "Yellow cat with letter C - phonics learning card"
+    alt: "Cat picture - matches with letter C"
   }
 ];
 
@@ -130,6 +147,9 @@ export const shuffleCards = (cards: Card[]): Card[] => {
 };
 
 // Check if two cards form a matching pair
+// Cards match if they have the same pairId but different types (letter matches picture)
 export const isMatchingPair = (card1: Card, card2: Card): boolean => {
-  return card1.pairId === card2.pairId && card1.id !== card2.id;
+  return card1.pairId === card2.pairId && 
+         card1.id !== card2.id && 
+         card1.type !== card2.type;
 };

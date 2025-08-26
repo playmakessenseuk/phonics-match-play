@@ -21,6 +21,7 @@ import { Card } from '@/data/gameData';
 const mockCard: Card = {
   id: 1,
   pairId: 1,
+  type: 'letter',
   front: 'test-front.jpg',
   alt: 'Test card for phonics'
 };
@@ -181,11 +182,11 @@ describe('Game Utilities', () => {
   it('identifies matching pairs correctly', async () => {
     const { isMatchingPair } = await import('@/data/gameData');
     
-    const card1: Card = { id: 1, pairId: 1, front: 'test1.jpg', alt: 'Test 1' };
-    const card2: Card = { id: 2, pairId: 1, front: 'test1.jpg', alt: 'Test 1' };
-    const card3: Card = { id: 3, pairId: 2, front: 'test2.jpg', alt: 'Test 2' };
+    const card1: Card = { id: 1, pairId: 1, type: 'letter', front: 'test1.jpg', alt: 'Test 1' };
+    const card2: Card = { id: 2, pairId: 1, type: 'picture', front: 'test1.jpg', alt: 'Test 1' };
+    const card3: Card = { id: 3, pairId: 2, type: 'letter', front: 'test2.jpg', alt: 'Test 2' };
 
-    // Same pairId, different id = match
+    // Same pairId, different id, different types = match
     expect(isMatchingPair(card1, card2)).toBe(true);
     
     // Different pairId = no match
@@ -193,6 +194,10 @@ describe('Game Utilities', () => {
     
     // Same card = no match (can't match with itself)
     expect(isMatchingPair(card1, card1)).toBe(false);
+    
+    // Same pairId, same type = no match (letter can't match letter)
+    const card4: Card = { id: 4, pairId: 1, type: 'letter', front: 'test3.jpg', alt: 'Test 3' };
+    expect(isMatchingPair(card1, card4)).toBe(false);
   });
 
   it('shuffles cards randomly', async () => {

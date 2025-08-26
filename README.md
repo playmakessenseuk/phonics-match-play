@@ -1,60 +1,93 @@
-# 🎯 Phonics Matching Game
+# 🎯 Phonics Letter-Picture Matching Game
 
-A beautiful, responsive browser-based memory matching game designed to help children learn phonics. Built with React, TypeScript, and Tailwind CSS for optimal performance across mobile, tablet, and desktop devices.
+A beautiful, educational memory matching game where children match letters with their corresponding pictures (A↔Apple, B↔Ball, C↔Cat). Built with React, TypeScript, and Tailwind CSS for a responsive, accessible learning experience.
 
 ## 🎮 Game Features
 
-- **6 Interactive Cards**: 3 matching pairs with phonics content arranged in 2 rows of 3 (desktop) or 3 rows of 2 (mobile)
-- **Responsive Design**: Optimized for all device sizes
+- **Letter-Picture Matching**: 3 pairs where letters match corresponding pictures (A↔Apple, B↔Ball, C↔Cat)
+- **6 Interactive Cards**: Arranged in 2 rows of 3 (desktop) or 3 rows of 2 (mobile)
+- **Educational Design**: Clean white background with professional card styling (#649494 card backs)
 - **Kid-Friendly Animations**: Smooth card flips, bounce effects, and celebration animations
-- **Victory Screen**: Shows discount code and promotional message upon completion
+- **Victory Screen**: Shows discount code and promotional message (no trophy icon)
 - **Progress Tracking**: Visual progress bar and move counter
 - **Accessibility**: Full keyboard navigation and screen reader support
 
-## 🖼️ Customizing Card Images
+## 🔧 Setting Up Your Letter-Picture Pairs
 
-### Quick Image Replacement
+### Understanding the Game Structure
 
-1. **Prepare Your Images**:
-   - Create square images (512x512px recommended)
-   - Use JPG or PNG format
-   - Name them descriptively (e.g., `card-apple-a.jpg`)
+The game uses a **letter-picture matching system**:
+- **Letter Cards**: Display individual letters (A, B, C) 
+- **Picture Cards**: Display corresponding images (Apple, Ball, Cat)
+- **Matching**: Players match letter cards with their corresponding picture cards
 
-2. **Add Images to Project**:
-   ```bash
-   # Place your images in the src/assets/ folder
-    src/assets/
-    ├── card-apple-a.jpg      # Your custom image 1
-    ├── card-bear-b.jpg       # Your custom image 2
-    ├── card-cat-c.jpg        # Your custom image 3
-    └── card-back.jpg         # Card back design (or solid color)
-   ```
+### 1. Prepare Your Images
 
-3. **Update the Configuration**:
-   Edit `src/data/gameData.ts`:
-   ```typescript
-   // Update import statements
-   import cardAppleA from "@/assets/your-new-image-1.jpg";
-   import cardBearB from "@/assets/your-new-image-2.jpg";
-   // ... continue for all images
+**For Letter Cards**:
+- Large, bold letters on clean white backgrounds
+- High contrast colors (recommended: dark blue on white)
+- Square aspect ratio (512x512px recommended)
+- Simple, readable fonts
 
-   // Update card data descriptions
-   export const CARD_DATA: Card[] = [
-     {
-       id: 1,
-       pairId: 1,
-       front: cardAppleA,
-       alt: "Your custom description for screen readers"
-     },
-     // ... continue for all cards
-   ];
-   ```
+**For Picture Cards**: 
+- Clear, recognizable images representing the letter sound
+- Child-friendly illustrations
+- Clean white or simple backgrounds
+- Objects that clearly represent the corresponding letter
 
-### Adding More Card Pairs
+### 2. Add Images to Project
+
+```bash
+# Place your images in the src/assets/ folder
+src/assets/
+├── card-letter-a.jpg     # Letter A card
+├── card-letter-b.jpg     # Letter B card  
+├── card-letter-c.jpg     # Letter C card
+├── card-apple-a.jpg      # Apple picture (matches A)
+├── card-ball-b.jpg       # Ball picture (matches B)
+├── card-cat-c.jpg        # Cat picture (matches C)
+└── card-back.jpg         # Card back design (or solid color)
+```
+
+### 3. Update the Configuration
+
+Edit `src/data/gameData.ts`:
+
+```typescript
+// Import letter and picture images
+import cardLetterA from "@/assets/card-letter-a.jpg";
+import cardAppleA from "@/assets/card-apple-a.jpg";
+// ... continue for all images
+
+// Update card data with letter-picture pairs
+export const CARD_DATA: Card[] = [
+  // Each pair needs one letter and one picture card
+  {
+    id: 1,
+    pairId: 1,
+    type: 'letter',        // Letter card type
+    front: cardLetterA,
+    alt: "Letter A - matches with apple"
+  },
+  {
+    id: 2,
+    pairId: 1, 
+    type: 'picture',       // Picture card type
+    front: cardAppleA,
+    alt: "Apple picture - matches with letter A"
+  }
+  // ... continue for all pairs
+];
+```
+
+### Adding More Letter-Picture Pairs
 
 To expand the game beyond 3 pairs:
 
-1. **Add New Images**: Place additional images in `src/assets/`
+1. **Add New Images**: 
+   - Create or find letter images (e.g., card-letter-d.jpg)
+   - Create or find corresponding picture images (e.g., card-dog-d.jpg)
+   - Place both in `src/assets/`
 
 2. **Update Constants**:
    ```typescript
@@ -62,23 +95,31 @@ To expand the game beyond 3 pairs:
    export const TOTAL_PAIRS = 4; // Increase number
    ```
 
-3. **Add Card Data**:
+3. **Add Card Data Pairs**:
    ```typescript
     // Add new pairs to CARD_DATA array
+    // Each pair needs one letter card and one picture card
     {
       id: 7,
       pairId: 4,
-      front: cardNewImage1,
-      alt: "Description of new card"
+      type: 'letter',
+      front: cardLetterD,
+      alt: "Letter D - matches with dog"
     },
     {
       id: 8,
       pairId: 4,
-      front: cardNewImage1,
-      alt: "Description of new card"
+      type: 'picture',
+      front: cardDogD,
+      alt: "Dog picture - matches with letter D"
     },
    // Continue pattern for additional pairs...
    ```
+
+**Important**: Each letter-picture pair must have:
+- Same `pairId` number
+- Different `type` values ('letter' and 'picture')  
+- Unique `id` numbers
 
 ## 💰 Updating Discount Code & Promotional Message
 
@@ -120,6 +161,22 @@ The card backs can be customized in two ways:
 2. **Solid Color**: Set a solid color in `src/components/GameCard.tsx` by updating the card back style
 
 Current card back uses solid color `#649494` for a clean, professional look.
+
+### Creating Letter Cards
+
+Letter cards should have:
+- Large, bold letters on clean backgrounds
+- High contrast for readability
+- Consistent styling across all letters
+- Square aspect ratio (512x512px recommended)
+
+### Creating Picture Cards
+
+Picture cards should have:
+- Clear, recognizable images 
+- Simple, child-friendly illustrations
+- Clean backgrounds
+- Objects that clearly represent the corresponding letter sound
 
 ### Changing Color Scheme
 
@@ -334,9 +391,9 @@ git checkout -- filename.tsx
    - Background music toggle
 
 2. **Difficulty Levels**:
-   - Easy: 2 pairs
-   - Medium: 3 pairs (current)
-   - Hard: 4+ pairs
+   - Easy: 2 pairs (4 cards total)
+   - Medium: 3 pairs (6 cards total - current)
+   - Hard: 4+ pairs (8+ cards total)
 
 3. **Progress Tracking**:
    - Best time records
@@ -370,7 +427,7 @@ const playSound = (soundType: 'flip' | 'match' | 'victory') => {
 // Example: Difficulty settings
 export const DIFFICULTY_LEVELS = {
   easy: { pairs: 2, timeLimit: null },
-  medium: { pairs: 3, timeLimit: 120 },
+  medium: { pairs: 3, timeLimit: 120 },    // current setting
   hard: { pairs: 4, timeLimit: 180 }
 };
 ```
@@ -390,9 +447,15 @@ export const DIFFICULTY_LEVELS = {
 - Test on actual devices, not just browser dev tools
 
 **Victory screen not showing**:
-- Check `TOTAL_PAIRS` constant matches actual pair count (should be 3)
+- Check `TOTAL_PAIRS` constant matches actual pair count (should be 3 for current setup)
 - Verify all cards have correct `pairId` values
+- Ensure each pair has one 'letter' and one 'picture' card
 - Check browser console for JavaScript errors
+
+**Cards not matching when they should**:
+- Verify matching cards have same `pairId` but different `type` values
+- Check the `isMatchingPair` function logic
+- Ensure card data structure includes `type` field
 
 **Build errors**:
 - Run `npm install` to ensure dependencies
