@@ -1,10 +1,10 @@
 # 🎯 Phonics Letter-Picture Matching Game
 
-A beautiful, educational memory matching game where children match letters with their corresponding pictures (A↔Apple, B↔Ball, C↔Cat). Built with React, TypeScript, and Tailwind CSS for a responsive, accessible learning experience.
+A beautiful, educational memory matching game where children match letters with their corresponding pictures (A↔Ant, B↔Bed, C↔Cat). Built with React, TypeScript, and Tailwind CSS for a responsive, accessible learning experience.
 
 ## 🎮 Game Features
 
-- **Letter-Picture Matching**: 3 pairs where letters match corresponding pictures (A↔Apple, B↔Ball, C↔Cat)
+- **Letter-Picture Matching**: 3 pairs where letters match corresponding pictures (A↔Ant, B↔Bed, C↔Cat)
 - **6 Interactive Cards**: Arranged in 2 rows of 3 (desktop) or 3 rows of 2 (mobile)
 - **Educational Design**: Clean white background with professional card styling (#649494 card backs)
 - **Kid-Friendly Animations**: Smooth card flips, bounce effects, and celebration animations
@@ -18,7 +18,7 @@ A beautiful, educational memory matching game where children match letters with 
 
 The game uses a **letter-picture matching system**:
 - **Letter Cards**: Display individual letters (A, B, C) 
-- **Picture Cards**: Display corresponding images (Apple, Ball, Cat)
+- **Picture Cards**: Display corresponding images (Ant, Bed, Cat)
 - **Matching**: Players match letter cards with their corresponding picture cards
 
 ### 1. Prepare Your Images
@@ -43,8 +43,8 @@ src/assets/
 ├── card-letter-a.jpg     # Letter A card
 ├── card-letter-b.jpg     # Letter B card  
 ├── card-letter-c.jpg     # Letter C card
-├── card-apple-a.jpg      # Apple picture (matches A)
-├── card-ball-b.jpg       # Ball picture (matches B)
+├── card-ant-a.jpg        # Ant picture (matches A)
+├── card-bed-b.jpg        # Bed picture (matches B)
 ├── card-cat-c.jpg        # Cat picture (matches C)
 └── card-back.jpg         # Card back design (or solid color)
 ```
@@ -56,7 +56,7 @@ Edit `src/data/gameData.ts`:
 ```typescript
 // Import letter and picture images
 import cardLetterA from "@/assets/card-letter-a.jpg";
-import cardAppleA from "@/assets/card-apple-a.jpg";
+import cardAntA from "@/assets/card-ant-a.jpg";
 // ... continue for all images
 
 // Update card data with letter-picture pairs
@@ -67,14 +67,14 @@ export const CARD_DATA: Card[] = [
     pairId: 1,
     type: 'letter',        // Letter card type
     front: cardLetterA,
-    alt: "Letter A - matches with apple"
+    alt: "Letter A - matches with ant"
   },
   {
     id: 2,
     pairId: 1, 
     type: 'picture',       // Picture card type
-    front: cardAppleA,
-    alt: "Apple picture - matches with letter A"
+    front: cardAntA,
+    alt: "Ant picture - matches with letter A"
   }
   // ... continue for all pairs
 ];
@@ -306,10 +306,13 @@ After deploying, you can connect a custom domain:
 ```
 src/
 ├── assets/                 # Game images
-│   ├── card-apple-a.jpg   # Card front images
-│   ├── card-bear-b.jpg
-│   ├── card-cat-c.jpg
-│   └── card-back.jpg      # Card back design (or solid color #649494)
+│   ├── card-letter-a.jpg   # Letter A card
+│   ├── card-letter-b.jpg   # Letter B card
+│   ├── card-letter-c.jpg   # Letter C card
+│   ├── card-ant-a.jpg      # Ant picture (matches A)
+│   ├── card-bed-b.jpg      # Bed picture (matches B)
+│   ├── card-cat-c.jpg      # Cat picture (matches C)
+│   └── card-back.jpg       # Card back design (or solid color #649494)
 ├── components/            # React components
 │   ├── GameCard.tsx       # Individual card component
 │   ├── VictoryScreen.tsx  # Win screen with discount

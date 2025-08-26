@@ -26,8 +26,8 @@ import cardLetterB from "@/assets/card-letter-b.jpg";
 import cardLetterC from "@/assets/card-letter-c.jpg";
 
 // Import picture card images - REPLACE THESE WITH YOUR OWN IMAGES
-import cardAppleA from "@/assets/card-apple-a.jpg";
-import cardBallB from "@/assets/card-ball-b.jpg";
+import cardAntA from "@/assets/card-ant-a.jpg";
+import cardBedB from "@/assets/card-bed-b.jpg";
 import cardCatC from "@/assets/card-cat-c.jpg";
 import cardBack from "@/assets/card-back.jpg";
 
@@ -68,36 +68,36 @@ export const CARD_BACK_IMAGE = cardBack;
  * 4. Update TOTAL_PAIRS constant
  */
 export const CARD_DATA: Card[] = [
-  // Pair 1: Letter A ↔ Apple
+  // Pair 1: Letter A ↔ Ant
   {
     id: 1,
     pairId: 1,
     type: 'letter',
     front: cardLetterA,
-    alt: "Letter A - matches with apple"
+    alt: "Letter A - matches with ant"
   },
   {
     id: 2,
     pairId: 1,
     type: 'picture',
-    front: cardAppleA,
-    alt: "Apple picture - matches with letter A"
+    front: cardAntA,
+    alt: "Ant picture - matches with letter A"
   },
   
-  // Pair 2: Letter B ↔ Ball
+  // Pair 2: Letter B ↔ Bed
   {
     id: 3,
     pairId: 2,
     type: 'letter',
     front: cardLetterB,
-    alt: "Letter B - matches with ball"
+    alt: "Letter B - matches with bed"
   },
   {
     id: 4,
     pairId: 2,
     type: 'picture',
-    front: cardBallB,
-    alt: "Ball picture - matches with letter B"
+    front: cardBedB,
+    alt: "Bed picture - matches with letter B"
   },
   
   // Pair 3: Letter C ↔ Cat
