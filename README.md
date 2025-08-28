@@ -24,10 +24,10 @@ The game uses a **letter-picture matching system**:
 ### 1. Prepare Your Images
 
 **For Letter Cards**:
-- Large, bold letters on clean white backgrounds
-- High contrast colors (recommended: dark blue on white)
-- Square aspect ratio (512x512px recommended)
-- Simple, readable fonts
+- Large, bold letters on clean white backgrounds using Sassoon Primary font
+- Black letters on white background for high contrast and readability
+- Square aspect ratio (512x512px recommended)  
+- Letters should be centered and consistently sized
 
 **For Picture Cards**: 
 - Clear, recognizable images representing the letter sound
@@ -79,6 +79,16 @@ export const CARD_DATA: Card[] = [
   // ... continue for all pairs
 ];
 ```
+
+### 4. Add Sassoon Primary Font (Required for Letter Cards)
+
+The game uses Sassoon Primary font for educational letter cards. This font is already included in `index.html`:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sassoon+Primary:wght@400;700&display=swap">
+```
+
+If you need to add additional fonts for customization, add them to the `<head>` section of `index.html` before the title tag.
 
 ### Adding More Letter-Picture Pairs
 
@@ -165,9 +175,9 @@ Current card back uses solid color `#649494` for a clean, professional look.
 ### Creating Letter Cards
 
 Letter cards should have:
-- Large, bold letters on clean backgrounds
-- High contrast for readability
-- Consistent styling across all letters
+- Black letters on clean white backgrounds using Sassoon Primary font
+- High contrast for readability and accessibility
+- Consistent styling and centering across all letters
 - Square aspect ratio (512x512px recommended)
 
 ### Creating Picture Cards
