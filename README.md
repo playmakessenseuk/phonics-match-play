@@ -213,7 +213,9 @@ Animation timing can be adjusted by modifying these CSS variables:
 }
 ```
 
-## 🧪 Testing the Game
+## 🔧 Development
+
+This is a streamlined phonics game focused on core functionality. The project has been simplified to include only essential game features without additional testing or deployment complexity.
 
 ### Manual Testing Checklist
 
@@ -227,44 +229,6 @@ Animation timing can be adjusted by modifying these CSS variables:
 - [ ] Game works on tablets
 - [ ] Game works on desktop
 - [ ] Keyboard navigation works (Tab, Enter, Space)
-
-### Automated Testing Setup
-
-Basic test examples are included. To expand testing:
-
-```bash
-# Install testing dependencies
-npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
-
-# Run tests
-npm test
-```
-
-Example test structure in `src/components/__tests__/`:
-
-```typescript
-// GameCard.test.tsx
-import { render, fireEvent } from '@testing-library/react';
-import { GameCard } from '../GameCard';
-
-test('card flips when clicked', () => {
-  const mockCard = { id: 1, pairId: 1, front: 'test.jpg', alt: 'Test card' };
-  const mockOnClick = jest.fn();
-  
-  const { getByRole } = render(
-    <GameCard 
-      card={mockCard}
-      isFlipped={false}
-      isMatched={false}
-      isDisabled={false}
-      onClick={mockOnClick}
-    />
-  );
-  
-  fireEvent.click(getByRole('button'));
-  expect(mockOnClick).toHaveBeenCalledWith(mockCard);
-});
-```
 
 ## 🚀 Deployment
 
