@@ -75,8 +75,7 @@ export const VictoryScreen = ({
               Play Again
             </Button>
             <Button onClick={() => {
-            // In a real implementation, this could open a store link
-            alert("This would redirect to your online store!");
+            window.open("https://your-shopify-store.com/collections/phonics-games", "_blank");
           }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90">
               Shop Now
             </Button>
