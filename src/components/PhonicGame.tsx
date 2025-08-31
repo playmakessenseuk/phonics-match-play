@@ -141,14 +141,14 @@ export const PhonicGame = () => {
       <div className="max-w-4xl mx-auto mb-8">
         <div className="text-center mb-6">
           <h1 className="text-4xl md:text-5xl font-bold font-chewy text-heading mb-2">Phonics Memory Game</h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg font-coming-soon text-paragraph">
             Find all the matching pairs to unlock your special discount!
           </p>
         </div>
 
         {/* Game Stats */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-6 text-sm">
+          <div className="flex items-center gap-6 text-sm font-coming-soon text-paragraph">
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4 text-success" />
               <span>Matches: {matchedPairs.length}/{TOTAL_PAIRS}</span>
@@ -177,7 +177,7 @@ export const PhonicGame = () => {
 
         {/* Progress Indicator */}
         <div className="mt-8 max-w-md mx-auto">
-          <div className="flex justify-between text-sm text-muted-foreground mb-2">
+          <div className="flex justify-between text-sm font-coming-soon text-paragraph mb-2">
             <span>Progress</span>
             <span>{matchedPairs.length}/{TOTAL_PAIRS} pairs</span>
           </div>
@@ -189,8 +189,8 @@ export const PhonicGame = () => {
         </div>
 
         {/* Instructions */}
-        <div className="text-center mt-8 text-sm text-muted-foreground max-w-md mx-auto">
-          <p>
+        <div className="text-center mt-8 text-sm font-coming-soon text-paragraph max-w-md mx-auto">
+          <p className="font-coming-soon text-paragraph">
             Tap cards to flip them over. Find matching pairs to win! 
             Complete the game to reveal your special discount code.
           </p>

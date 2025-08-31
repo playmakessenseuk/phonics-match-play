@@ -21,8 +21,9 @@
     --primary-foreground: 0 0% 100%;
     --primary-glow: 220 100% 75%;
     
-    /* Custom heading color */
+    /* Custom text colors */
     --heading-color: 0 0% 31%;      /* #4e4e4e */
+    --paragraph-color: 0 0% 31%;    /* #4e4e4e */
 
     --secondary: 45 100% 55%;       /* Sunny Yellow */
     --secondary-foreground: 220 15% 20%;

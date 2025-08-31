@@ -20,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'chewy': ['Chewy', 'cursive'],
+				'coming-soon': ['Coming Soon', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -76,7 +77,8 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				heading: 'hsl(var(--heading-color))'
+				heading: 'hsl(var(--heading-color))',
+				paragraph: 'hsl(var(--paragraph-color))'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',

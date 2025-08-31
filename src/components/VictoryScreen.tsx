@@ -58,7 +58,7 @@ export const VictoryScreen = ({
               </div>
             </div>
             
-            <p className="text-sm text-foreground">
+            <p className="text-sm font-coming-soon text-paragraph">
               {VICTORY_CONFIG.discountText}
             </p>
           </div>
