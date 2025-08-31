@@ -124,7 +124,7 @@ export const CARD_DATA: Card[] = [
  * Update this to change your promotional message or discount code.
  */
 export const VICTORY_CONFIG = {
-  title: "🎉 Congratulations! 🎉",
+  title: "Congratulations!",
   message: "You've mastered our phonics matching game!",
   discountCode: "PHONICS20",
   discountText: "Use this discount code to order the full physical game!",
