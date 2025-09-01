@@ -39,7 +39,7 @@ export const VictoryScreen = ({
         <CardContent className="p-8 text-center space-y-6">
 
           {/* Title */}
-          <h1 className="text-3xl font-bold text-foreground">
+          <h1 className="text-3xl font-bold font-coming-soon text-paragraph">
             {VICTORY_CONFIG.title}
           </h1>
 
@@ -52,8 +52,8 @@ export const VictoryScreen = ({
             
             {/* Discount Code */}
             <div className="bg-background rounded p-3 mb-3">
-              <div className="text-sm text-muted-foreground mb-1">Discount Code:</div>
-              <div className="text-2xl font-bold text-primary tracking-wider">
+              <div className="text-sm font-coming-soon text-paragraph mb-1">Discount Code:</div>
+              <div className="text-2xl font-bold font-coming-soon text-paragraph tracking-wider">
                 {VICTORY_CONFIG.discountCode}
               </div>
             </div>
@@ -71,18 +71,18 @@ export const VictoryScreen = ({
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <Button onClick={onPlayAgain} variant="outline" className="flex-1">
+            <Button onClick={onPlayAgain} variant="outline" className="flex-1 font-coming-soon text-paragraph">
               Play Again
             </Button>
             <Button onClick={() => {
             window.open("https://your-shopify-store.com/collections/phonics-games", "_blank");
-          }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90">
+          }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90 font-coming-soon">
               Shop Now
             </Button>
           </div>
 
           {/* Game Stats */}
-          <div className="text-xs text-muted-foreground pt-4 border-t border-border">
+          <div className="text-xs font-coming-soon text-paragraph pt-4 border-t border-border">
             Game completed! You found all 6 matching pairs.
           </div>
         </CardContent>
