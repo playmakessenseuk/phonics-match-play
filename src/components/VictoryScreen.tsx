@@ -36,7 +36,7 @@ export const VictoryScreen = ({
 
       {/* Victory Card */}
       <Card className="w-full max-w-md mx-4 animate-victory-celebration shadow-card-hover">
-        <CardContent className="p-8 text-center space-y-6">
+        <CardContent className="p-8 text-center space-y-6 opacity-75">
 
           {/* Title */}
           <h1 className="text-3xl font-bold font-coming-soon text-paragraph">
