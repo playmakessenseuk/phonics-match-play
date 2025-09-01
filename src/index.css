@@ -7,7 +7,7 @@
 @layer base {
   :root {
     /* Game Background */
-    --background: 200 100% 97%;
+    --background: 150 15% 80%;
     --foreground: 220 15% 20%;
 
     /* Card System */
