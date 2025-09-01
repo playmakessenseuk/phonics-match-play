@@ -189,7 +189,7 @@ Complete the game to reveal your special discount code.</p>
 
         {/* Instructions */}
         <div className="text-center mt-8 text-sm font-coming-soon text-paragraph max-w-md mx-auto">
-          <p className="font-coming-soon text-paragraph">Tap cards to flip them over. Find the images and their matching initial sounds to win! Complete the game to reveal your special discount code.</p>
+          
         </div>
       </div>
 
