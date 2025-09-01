@@ -158,7 +158,7 @@ export const PhonicGame = () => {
             </div>
           </div>
 
-          <Button onClick={resetGame} variant="outline" size="sm" className="flex items-center gap-2">
+          <Button onClick={resetGame} variant="outline" size="sm" className="flex items-center gap-2 font-coming-soon text-paragraph">
             <RotateCcw className="w-4 h-4" />
             New Game
           </Button>
