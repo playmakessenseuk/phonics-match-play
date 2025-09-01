@@ -53,7 +53,7 @@ export const VictoryScreen = ({
             {/* Discount Code */}
             <div className="bg-background rounded p-3 mb-3">
               <div className="text-sm font-coming-soon text-paragraph mb-1">Discount Code:</div>
-              <div className="text-2xl font-bold font-coming-soon text-paragraph tracking-wider">
+              <div className="text-2xl font-bold font-chewy text-paragraph tracking-wider">
                 {VICTORY_CONFIG.discountCode}
               </div>
             </div>
@@ -71,12 +71,12 @@ export const VictoryScreen = ({
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <Button onClick={onPlayAgain} variant="outline" className="flex-1 font-coming-soon text-paragraph">
+            <Button onClick={onPlayAgain} variant="outline" className="flex-1 font-chewy text-paragraph">
               Play Again
             </Button>
             <Button onClick={() => {
             window.open("https://your-shopify-store.com/collections/phonics-games", "_blank");
-          }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90 font-coming-soon">
+          }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90 font-chewy">
               Shop Now
             </Button>
           </div>
