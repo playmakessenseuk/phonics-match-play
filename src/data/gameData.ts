@@ -126,7 +126,7 @@ export const CARD_DATA: Card[] = [
 export const VICTORY_CONFIG = {
   title: "Congratulations!",
   message: "You've mastered our phonics matching game!",
-  discountCode: "PHONICS20",
+  discountCode: "WINNER15",
   discountText: "Use this discount code to order the full physical game!",
   callToAction: "Ready to continue learning with our complete phonics set?",
   website: "Visit our store to order your physical game today!"

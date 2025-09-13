@@ -75,7 +75,7 @@ export const VictoryScreen = ({
               Play Again
             </Button>
             <Button onClick={() => {
-            window.open("https://your-shopify-store.com/collections/phonics-games", "_blank");
+            window.open("https://www.playmakessense.co.uk/collections/shop-all-products", "_blank");
           }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90 font-chewy border border-input">
               Shop Now
             </Button>
