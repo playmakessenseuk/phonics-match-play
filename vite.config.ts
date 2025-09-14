@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/phonics-matching-game/", // Replace with your actual repository name
+  base: "/phonics-match-play/", // Updated to match your GitHub repository name
   server: {
     host: "::",
     port: 8080,
