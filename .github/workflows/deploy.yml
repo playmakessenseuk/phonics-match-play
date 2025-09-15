@@ -33,6 +33,15 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: List build output (for debugging)
+        run: |
+          echo "Contents of dist folder:"
+          ls -la dist/
+          echo "Contents of dist/index.html:"
+          head -20 dist/index.html
+          echo "Checking if base path is correct:"
+          grep -n "phonics-match-play" dist/index.html || echo "Base path not found in index.html"
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
