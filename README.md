@@ -242,13 +242,50 @@ This is a streamlined phonics game focused on core functionality. The project ha
 
 ## 🚀 Deployment
 
+### Dual Environment Setup (Lovable + GitHub Pages)
+
+This project is configured to work seamlessly in both Lovable editor and GitHub Pages:
+
+**Lovable Environment**: 
+- Preview works with base path `/` for local development
+- Allows live editing and real-time preview
+
+**GitHub Pages Environment**:
+- Uses base path `/phonics-match-play/` for production deployment
+- Automatically deploys via GitHub Actions on push to main branch
+
+### Configuration Files
+
+**`vite.config.ts`**: Handles conditional base path
+```typescript
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? "/phonics-match-play/" : "/",
+  // ... other config
+}));
+```
+
+**`src/App.tsx`**: Handles conditional basename for React Router
+```typescript
+<BrowserRouter basename={import.meta.env.PROD ? "/phonics-match-play" : undefined}>
+```
+
+**`.github/workflows/deploy.yml`**: Automated GitHub Pages deployment
+- Builds project on push to main branch
+- Deploys to GitHub Pages using GitHub Actions
+- Includes debugging output for troubleshooting
+
+### GitHub Pages Setup
+
+1. **Repository Settings**: Go to Settings → Pages
+2. **Source**: Select "Deploy from a branch" → "GitHub Actions"
+3. **Custom Domain** (optional): Add your domain in the "Custom domain" field
+
 ### Static Hosting Options
 
-The game is built as a static web application and can be hosted on:
+The game can also be hosted on:
 
 - **Netlify**: Drag and drop the `dist` folder
-- **Vercel**: Connect your GitHub repository
-- **GitHub Pages**: Use the `gh-pages` branch
+- **Vercel**: Connect your GitHub repository  
 - **AWS S3**: Upload to S3 bucket with static hosting
 - **Any web server**: Upload the built files
 
