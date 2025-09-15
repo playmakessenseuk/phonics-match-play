@@ -1,6 +1,6 @@
 # 🎯 Phonics Letter-Picture Matching Game
 
-A beautiful, educational memory matching game where children match letters with their corresponding pictures (A↔Ant, B↔Bed, C↔Cat). Built with React, TypeScript, and Tailwind CSS for a responsive, accessible learning experience.
+A beautiful, educational memory matching game where children match letters with their corresponding pictures (A↔Ant, B↔Bed, C↔Cat). Built with React, TypeScript, and Tailwind CSS for a responsive, accessible learning experience. Completing the game gives the user a discount code to buy the full physical version! 
 
 ## 🎮 Game Features
 
