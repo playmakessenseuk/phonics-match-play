@@ -139,14 +139,6 @@ export const PhonicGame = () => {
   return <div className="min-h-screen bg-white p-4">
       {/* Game Header */}
       <div className="max-w-4xl mx-auto mb-8">
-        <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold font-chewy text-heading mb-2">Phonics Memory Game</h1>
-          <p className="text-lg font-coming-soon text-paragraph">
-            Tap cards to flip them over. Find the images and their matching initial sounds to win!
-            <br />
-            Complete the game to reveal your special discount code.
-          </p>
-        </div>
 
         {/* Game Stats */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
