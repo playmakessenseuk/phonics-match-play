@@ -136,31 +136,9 @@ export const PhonicGame = () => {
   const isCardMatched = (card: Card): boolean => {
     return matchedPairs.includes(card.pairId);
   };
-  return <div className="min-h-screen bg-white p-4">
-      {/* Game Header */}
-      <div className="max-w-4xl mx-auto mb-8">
-
-        {/* Game Stats */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-6 text-sm font-coming-soon text-paragraph">
-            <div className="flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-success" />
-              <span>Matches: {matchedPairs.length}/{TOTAL_PAIRS}</span>
-            </div>
-            <div>
-              Moves: {moves}
-            </div>
-          </div>
-
-          <Button onClick={resetGame} variant="outline" size="sm" className="flex items-center gap-2 font-coming-soon text-paragraph">
-            <RotateCcw className="w-4 h-4" />
-            New Game
-          </Button>
-        </div>
-      </div>
-
+  return <div className="min-h-screen bg-white pb-4">
       {/* Game Grid */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto pt-4">
         <div className={cn("grid gap-4 justify-center",
       // 3 rows of 2 cards on mobile, 2 rows of 3 cards on desktop
       "grid-cols-2 sm:grid-cols-3",
@@ -185,6 +163,24 @@ export const PhonicGame = () => {
         {/* Instructions */}
         <div className="text-center mt-8 text-sm font-coming-soon text-paragraph max-w-md mx-auto">
           
+        </div>
+
+        {/* Game Stats - Moved to Bottom */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
+          <div className="flex items-center gap-6 text-sm font-coming-soon text-paragraph">
+            <div className="flex items-center gap-2">
+              <Trophy className="w-4 h-4 text-success" />
+              <span>Matches: {matchedPairs.length}/{TOTAL_PAIRS}</span>
+            </div>
+            <div>
+              Moves: {moves}
+            </div>
+          </div>
+
+          <Button onClick={resetGame} variant="outline" size="sm" className="flex items-center gap-2 font-coming-soon text-paragraph">
+            <RotateCcw className="w-4 h-4" />
+            New Game
+          </Button>
         </div>
       </div>
 
