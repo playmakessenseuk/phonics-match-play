@@ -140,10 +140,10 @@ export const PhonicGame = () => {
       {/* Game Grid */}
       <div className="max-w-4xl mx-auto pt-4">
         <div className={cn("grid gap-2 sm:gap-4 justify-center",
-      // 2 rows of 3 cards on mobile for better mobile experience
-      "grid-cols-3 sm:grid-cols-5", 
-      // Smaller cards optimized for mobile
-      "max-w-xs sm:max-w-2xl mx-auto")}>
+      // 2 rows of 3 cards on both mobile and desktop
+      "grid-cols-3", 
+      // Smaller cards optimized for mobile with larger cards on desktop
+      "max-w-xs sm:max-w-lg mx-auto")}>
           {cards.map(card => <GameCard key={card.id} card={card} isFlipped={isCardFlipped(card)} isMatched={isCardMatched(card)} isDisabled={isProcessing} onClick={handleCardClick} />)}
         </div>
 
