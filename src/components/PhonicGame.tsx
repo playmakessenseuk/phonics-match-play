@@ -139,11 +139,13 @@ export const PhonicGame = () => {
   return <div className="min-h-screen bg-white pb-4">
       {/* Game Grid */}
       <div className="max-w-4xl mx-auto pt-4">
-        <div className={cn("grid gap-2 sm:gap-4 justify-center",
-      // 2 rows of 3 cards on both mobile and desktop
+        <div className={cn("grid gap-3 sm:gap-6 justify-center",
+      // 3 columns on all devices for consistent layout
       "grid-cols-3", 
-      // Smaller cards optimized for mobile with larger cards on desktop
-      "max-w-xs sm:max-w-lg mx-auto")}>
+      // Responsive sizing: very small on mobile, medium on tablet, larger on desktop
+      "max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] mx-auto",
+      // Ensure proper spacing and centering
+      "px-2 sm:px-4")}>
           {cards.map(card => <GameCard key={card.id} card={card} isFlipped={isCardFlipped(card)} isMatched={isCardMatched(card)} isDisabled={isProcessing} onClick={handleCardClick} />)}
         </div>
 
