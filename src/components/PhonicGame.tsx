@@ -4,7 +4,7 @@
  * Main game component that handles:
  * - Game state management (cards, matches, flips)
  * - Game logic (matching pairs, win conditions)
- * - Card grid layout and responsiveness
+ * - Mobile-first responsive card grid layout (3 columns on all devices)
  * - Victory screen display
  * 
  * Game Rules:
@@ -12,6 +12,12 @@
  * 2. If cards match, they stay face up and are marked as matched
  * 3. If cards don't match, they flip back after a short delay
  * 4. Game is won when all pairs are matched
+ * 
+ * Layout Features:
+ * - Mobile-optimized design with game tiles positioned at the very top
+ * - Responsive 3-column grid that scales from mobile (280px) to desktop (500px)
+ * - Game stats and controls moved to bottom for better mobile UX
+ * - Consistent 2 rows of 3 tiles layout across all device sizes
  */
 
 import { useState, useEffect, useCallback } from "react";
