@@ -36,15 +36,7 @@ export const VictoryScreen = ({
 
       {/* Victory Card */}
       <Card className="w-full max-w-xs sm:max-w-md mx-4 animate-victory-celebration shadow-card-hover bg-zinc-100">
-        <CardContent className="p-4 sm:p-8 text-center space-y-4 sm:space-y-6 opacity-75 bg-zinc-100 rounded-2xl">
-
-          {/* Title */}
-          <h1 className="text-3xl font-bold font-coming-soon text-paragraph">
-            {VICTORY_CONFIG.title}
-          </h1>
-
-          {/* Success Message */}
-          
+        <CardContent className="p-3 sm:p-6 text-center space-y-3 sm:space-y-4 opacity-75 bg-zinc-100 rounded-2xl">
 
           {/* Discount Code Section */}
           <div className="bg-game-victory rounded-lg p-4 border-2 border-secondary">
@@ -70,7 +62,7 @@ export const VictoryScreen = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4">
+          <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
             <Button onClick={onPlayAgain} variant="outline" className="flex-1 font-chewy text-paragraph">
               Play Again
             </Button>
