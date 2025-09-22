@@ -35,8 +35,8 @@ export const VictoryScreen = ({
         </div>}
 
       {/* Victory Card */}
-      <Card className="w-full max-w-md mx-4 animate-victory-celebration shadow-card-hover bg-zinc-100">
-        <CardContent className="p-8 text-center space-y-6 opacity-75 bg-zinc-100 rounded-2xl">
+      <Card className="w-full max-w-xs sm:max-w-md mx-4 animate-victory-celebration shadow-card-hover bg-zinc-100">
+        <CardContent className="p-4 sm:p-8 text-center space-y-4 sm:space-y-6 opacity-75 bg-zinc-100 rounded-2xl">
 
           {/* Title */}
           <h1 className="text-3xl font-bold font-coming-soon text-paragraph">
@@ -70,7 +70,7 @@ export const VictoryScreen = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-4">
+          <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4">
             <Button onClick={onPlayAgain} variant="outline" className="flex-1 font-chewy text-paragraph">
               Play Again
             </Button>
@@ -79,11 +79,6 @@ export const VictoryScreen = ({
           }} className="flex-1 bg-gradient-secondary text-secondary-foreground hover:opacity-90 font-chewy border border-input">
               Shop Now
             </Button>
-          </div>
-
-          {/* Game Stats */}
-          <div className="text-xs font-coming-soon text-paragraph pt-4 border-t border-border">
-            Game completed! You found all 6 matching pairs.
           </div>
         </CardContent>
       </Card>
